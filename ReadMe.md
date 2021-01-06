@@ -23,10 +23,10 @@ Run the following commands in the project's root directory to set up the databas
 4. Go to http://0.0.0.0:3001/
 
 ### <a name="Project"></a>Project Motivation
-This project is part of my Data Scientist Nanodegree Program by Udacity. The goal of this submission is to create a machine learning pipeline to categorize real disaster event messages in order to triage them to the appropriate disaster relief agency. For 
+This project is part of my Data Scientist Nanodegree Program by Udacity. The goal of this submission is to create a machine learning pipeline to categorize real disaster event messages in order to triage them to the appropriate disaster relief agency.
 
 ### <a name="BusinessUnderstanding"></a>Business Understanding
-The disaster response data is provided by [appen](https://appen.com "appen") and consists of two csv files. The 'messages.csv' file contains the id, the text translated into english and the original text for each message. The second 'categories.csv' file contains the corresponding categories to each message, represented by 0 (false) and 1 (true). 
+The disaster response data is provided by [appen](https://appen.com "appen") and consists of two csv files. The 'messages.csv' file contains the english text of the message and the second 'categories.csv' file contains the corresponding categories for each message, represented by 0 (false) and 1 (true). 
 
 ### <a name="DataUnderstanding"></a>Data Understanding
 The data consists of two csv files 'messages.csv' and 'categories.csv'.
@@ -39,8 +39,7 @@ int64 data type: 36.
 The files 'messages.csv' and 'categories.csv' were loaded into separate DataFrames and then merged into a single DataFrame by using an inner join. Then the column 'categories' is split into separate columns and headers were created accordingly. The next step was to convert category values to numbers (0 or 1) in order to use machine learning models later. There was a data quality issues with column 'related'. This column included some 2 values, so these values were replaced by 1 values. Last but not least 171 duplicates were dropped and the DataFrame was stored as a table in the DisasterResponse.db file.
 
 ### <a name="MLPipeline"></a>ML Pipeline
-The table 'DisasterData' included in DisasterResponse.df was loaded into a DataFrame and then split into two DataFrames. Then a machine learning pipeline was created which includes the CountVectorizer which makes use of the tokenize function. Then the TfidfTransformer is used to then use a MultiOutputClassifier with a RandomForestClassifier estimator to label each message to one or many categories. In order to optimize the machine learning model, GridSearchCV was used to identify the best parameters.
-Then the pickle module was used to store the model as a python object.
+The table 'DisasterData' included in DisasterResponse.df was loaded into a DataFrame and then split into two DataFrames. Then a machine learning pipeline was created which includes the CountVectorizer which makes use of the tokenize function. Then the TfidfTransformer is used to then use a MultiOutputClassifier with a RandomForestClassifier estimator to label each message to one or many categories. In order to optimize the machine learning model, GridSearchCV was used to identify the best parameters. Then a classification report is printed to display the results of the test set. Finally a pickle module was used to store the model as a python object.
 
 ### <a name="Deployment"></a>Deployment
 The machine learning pipeline can be used in a user-friendly way through a flask web app which was given by Udacity. See section [Installation](#Installation).
