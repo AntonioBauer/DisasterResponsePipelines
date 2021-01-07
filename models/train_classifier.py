@@ -50,7 +50,12 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
-    """Tokenize and lemmatize each word in a given text"""
+    '''Tokenize and lemmatize each word in a given text.
+
+        Parameters
+        ----------
+        text: message containing the description of the disaster
+    '''
 
     # remove punctuation
     text = re.sub(r'[^a-zA-Z0-9]', ' ', text.lower())
