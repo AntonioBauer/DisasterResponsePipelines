@@ -8,7 +8,9 @@
 4. [Data Understanding](#DataUnderstanding)
 5. [ETL Pipeline](#ETLPipeline)
 6. [ML Pipeline](#MLPipeline)
-7. [Deployment](#Deployment)
+7. [Evaluation](#Evaluation)
+8. [Deployment](#Deployment)
+9. [Licensing, Authors, Acknowledgements](#License)
 
 ## <a name="Installation"></a>Installation
 There should be no necessary libraries to run the code here beyond the Anaconda distribution of Python. The code should run with no issues using Python versions 3.*.
@@ -40,6 +42,22 @@ The files 'messages.csv' and 'categories.csv' were loaded into separate DataFram
 
 ### <a name="MLPipeline"></a>ML Pipeline
 The table 'DisasterData' included in DisasterResponse.df was loaded into a DataFrame and then split into two DataFrames. Then a machine learning pipeline was created which includes the CountVectorizer which makes use of the tokenize function. Then the TfidfTransformer is used to then use a MultiOutputClassifier with a RandomForestClassifier estimator to label each message to one or many categories. In order to optimize the machine learning model, GridSearchCV was used to identify the best parameters. Then a classification report is printed to display the results of the test set. Finally a pickle module was used to store the model as a python object.
+
+### <a name="Evaluation"></a>Evaluation
+Overall the model is doing quite okay, but there are some major inbalances in this dataset. For example labels like shops and tools have a really small sample size and therefore the model is performing really bad in these cases.
+
+                             precision    recall   f1-score   support
+
+               electricity       0.82      0.07      0.12       136
+                     tools       0.00      0.00      0.00        37
+                 hospitals       0.00      0.00      0.00        71
+                     shops       0.00      0.00      0.00        29
+               aid_centers       0.00      0.00      0.00        73
+      other_infrastructure       0.25      0.01      0.01       297
+           weather_related       0.84      0.58      0.69      1842
+                    floods       0.90      0.33      0.48       551
+
+A bigger sample size, a generalization or reduction of features could also improve the performance. Also a more refined hyperparameter tuning might improve the output, but I was really struggeling with computing power, so I had to stick to a simple model.
 
 ### <a name="Deployment"></a>Deployment
 The machine learning pipeline can be used in a user-friendly way through a flask web app which was given by Udacity. See section [Installation](#Installation).
