@@ -44,7 +44,7 @@ The files 'messages.csv' and 'categories.csv' were loaded into separate DataFram
 The table 'DisasterData' included in DisasterResponse.df was loaded into a DataFrame and then split into two DataFrames. Then a machine learning pipeline was created which includes the CountVectorizer which makes use of the tokenize function. Then the TfidfTransformer is used to then use a MultiOutputClassifier with a RandomForestClassifier estimator to label each message to one or many categories. In order to optimize the machine learning model, GridSearchCV was used to identify the best parameters. Then a classification report is printed to display the results of the test set. Finally a pickle module was used to store the model as a python object.
 
 ### <a name="Evaluation"></a>Evaluation
-Overall the model is doing quite okay, but there are some major inbalances in this dataset. For example labels like shops and tools have a really small sample size and therefore the model is performing really bad in these cases.
+Overall the model is doing quite okay, but there are some major imbalances in this dataset. For example labels like shops and tools have a really small sample size and therefore the model is performing really bad in these cases.
 
                              precision    recall   f1-score   support
 
