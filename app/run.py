@@ -17,7 +17,7 @@ app = Flask(__name__)
 def tokenize(text):
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
-
+    
     clean_tokens = []
     for tok in tokens:
         clean_tok = lemmatizer.lemmatize(tok).lower().strip()
@@ -43,14 +43,17 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    category_counts = (df.iloc[:,4:]).sum().values
+    category_names = df.iloc[:,4:].columns
+    
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
                 Bar(
-                    x=genre_names,
-                    y=genre_counts
+                    x = genre_names,
+                    y = genre_counts
                 )
             ],
 
@@ -63,7 +66,34 @@ def index():
                     'title': "Genre"
                 }
             }
-        }
+        },
+        
+        # 2. graph displaying the distribution on the categories
+        
+        {
+            'data': [
+                Bar(
+                    x = category_names,
+                    y = category_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Category",
+                    'tickangle': 45,
+                    'categoryorder': "category ascending",
+                    'tickfont': {
+                        'size' : 9
+                    }
+                },
+            }
+        },
+        
     ]
     
     # encode plotly graphs in JSON
