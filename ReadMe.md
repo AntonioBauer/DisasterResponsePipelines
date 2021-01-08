@@ -3,15 +3,15 @@
 
 ## Table of Contents
 1. [Folder Structure](#FolderStructure)
-1. [Installation](#Installation)
-2. [Project Motivation](#Project)
-3. [Business Understanding](#BusinessUnderstanding)
-4. [Data Understanding](#DataUnderstanding)
-5. [ETL Pipeline](#ETLPipeline)
-6. [ML Pipeline](#MLPipeline)
-7. [Evaluation](#Evaluation)
-8. [Deployment](#Deployment)
-9. [Licensing, Authors, Acknowledgements](#License)
+2. [Installation](#Installation)
+3. [Project Motivation](#Project)
+4. [Business Understanding](#BusinessUnderstanding)
+5. [Data Understanding](#DataUnderstanding)
+6. [ETL Pipeline](#ETLPipeline)
+7. [ML Pipeline](#MLPipeline)
+8. [Evaluation](#Evaluation)
+9. [Deployment](#Deployment)
+10. [Licensing, Authors, Acknowledgements](#License)
 
 ## <a name="FolderStructure"></a>Folder Structure
 app
