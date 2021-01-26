@@ -85,8 +85,8 @@ def build_model():
     
     # parameters are set to reduce the size of the pickle file, since my first files were larger than 1GB.
     parameters = {
-        'clf__estimator__n_estimators': [5],
-        'clf__estimator__min_samples_split': [2],
+        'clf__estimator__n_estimators': [4, 6, 9],
+        'clf__estimator__min_samples_split': [2, 3, 5],
     }
     
     model = GridSearchCV(pipeline, param_grid = parameters, cv = 3, verbose = 2, n_jobs = 4)
